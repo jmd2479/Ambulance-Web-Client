@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html><head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="scripts/sockjs-0.3.js"></script>
+  <script src="scripts/stomp.js"></script>
+  <style>
+      .box {
+          width: 440px;
+          float: left;
+          margin: 0 20px 0 20px;
+      }
+
+      .box div, .box input {
+          border: 1px solid;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          width: 100%;
+          padding: 5px;
+          margin: 3px 0 10px 0;
+      }
+
+      .box div {
+          border-color: grey;
+          height: 300px;
+          overflow: auto;
+      }
+
+      div code {
+          display: block;
+      }
+
+      #first div code {
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+          border: 1px solid #eee;
+          margin-bottom: 5px;
+      }
+
+      #second div {
+          font-size: 0.8em;
+      }
+  </style>
+  <title>Ambulance MSGR</title>
+  <link href="main.css" rel="stylesheet" type="text/css"/>
+</head><body lang="en">
+
+    <div id="first" class="box">
+      <h4 id="from_hospital">Messages received from </h2>
+	  <h4 id="by_ambulance">Messages sent by </h2>
+	  	  <h4 >Add parameters ?hospital=number&ambulance=number </h2>
+      <div></div>
+      <form><input autocomplete="off" placeholder="Send message from your ambulance to hospital"></input></form>
+    </div>
+
+    <div id="second" class="box">
+      <h2>Logs</h2>
+      <div></div>
+    </div>
+
+    <script>
+		function getUrlParameter(sParam)
+		{
+			var sPageURL = window.location.search.substring(1);
+			var sURLVariables = sPageURL.split('&');
+			for (var i = 0; i < sURLVariables.length; i++) 
+			{
+				var sParameterName = sURLVariables[i].split('=');
+				if (sParameterName[0] == sParam) 
+				{
+					return sParameterName[1];
+				}
+			}
+		}     
+	
+	
+      var ws = new SockJS('http://107.188.249.238:15674/stomp');
+      var client = Stomp.over(ws);
+      // SockJS does not support heart-beat: disable heart-beats
+      client.heartbeat.incoming = 0;
+      client.heartbeat.outgoing = 0;
+
+      client.debug = function(e) {
+        $('#second div').append($("<code>").text(e));
+      };
+
+
+	  var myAmbulance = '/topic/Ambulance'+getUrlParameter('ambulance')
+	  var theirHospital = '/topic/Hospital'+ getUrlParameter('hospital')
+	  $("#from_hospital").append(theirHospital);
+	  $("#by_ambulance").append(myAmbulance);	  
+	  
+      var on_connect = function(x) {
+          id = client.subscribe(myAmbulance, function(m) {
+			// gets the text value sent from the hospital
+			$('#first div').append($("<code>").text(m.body));
+			alert(m.body);
+          });
+      };
+      var on_error =  function() {
+        console.log('error');
+      };
+      client.connect('cs570', 'erProj1', on_connect, on_error, '/');
+
+      $('#first form').submit(function() {
+       var text = $('#first form input').val();
+        if (text) {
+          client.send(theirHospital, {'reply-to': theirHospital}, text);
+            $('#first form input').val("");
+          }
+         return false;
+      });
+	  
+    </script>
+</body></html>

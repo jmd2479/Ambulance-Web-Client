@@ -1,0 +1,230 @@
+html body  head{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width:1024px; 
+	height:767px; 
+}
+
+#mainDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width:1024px; 
+	height:767px; 
+	background-color: black;
+} 
+
+#leftDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width:512px; 
+	height:767px;
+	float: left;	
+	background-color: #31302F;
+	border-spacing: 0;
+}
+
+#rightDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width:512px; 
+	height:767px; 
+	float: right;
+	background-color: #31302F;
+	border-spacing: 0;
+}
+
+#leftContent {
+	margin-top: 14px;
+	margin-bottom: 14px;
+	margin-left: 14px;
+	margin-right: 7px;
+	border: 0;
+	padding: 0;
+	width: 488px;
+	height: 739px;
+	background-color: #A3A19E;
+}
+
+#titleDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-bottom: 3px solid #545250;
+	height: 76px;
+	width: 488px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#titleDiv h1 {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	color: #41403F;
+	line-height: 68px;
+	font-size: 3em;
+}
+
+#ambulanceIDDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 220px;
+	width: 488px;	
+}
+
+#IDDiv{
+	font-size: 5em;
+}
+
+#passwordDiv{
+	font-size: 5em;
+}
+
+#ambulancePWDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 220px;
+	width: 488px;
+}
+
+#submitDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 219px;
+	width: 488px;
+	text-align: center;
+}
+
+.categoryDiv {
+	margin: 0;
+	padding: 0;
+	padding-left:12px;
+	border: 0;
+	height: 60px;
+	width: 465px;
+	font-size: 1.75em;
+	color:#31302F;
+}
+
+.entryDiv {
+	margin: 0;
+	margin-left: 10px;
+	padding: 0;
+	border: 0;
+	height: 90px;
+	width: 465px;
+	vertical-align: center;
+	border-bottom: 2px solid #31302F;
+}
+
+.hospName {
+	border: 0;
+	margin: 0;
+	margin-top: 20px;
+	margin-bottom: 18px;
+	padding: 0;
+	color: #41403F;
+	font-size: 1.5em;
+}
+
+.hospAddress {
+	border: 0;
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+	color: #41403F;
+	font-size: 1.5em;
+}
+
+.selectBtn {
+	margin: 0;
+	margin-top: 30px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	width: 120px;
+	height: 120px;
+}
+
+.leftBtn {
+	margin-left: 60px;
+}
+
+#rightContent {
+	margin-top: 14px;
+	margin-bottom: 14px;
+	margin-left: 7px;
+	margin-right: 14px;
+	border: 0;
+	padding: 0;
+	width: 488px;
+	height: 739px;
+	background-color: #A3A19E;
+}
+
+#numPadDiv {
+	margin: 0;
+	margin-top: 0px;
+	padding: 0;
+	padding-top: 50px;
+	border: 0;
+	width: 488px;
+	height: 653px;	
+}
+
+
+.coolBtn {
+	-moz-box-shadow: 0px 0px 2px 3px #b3b5ba;
+	-webkit-box-shadow: 0px 0px 2px 3px #b3b5ba;
+	box-shadow: 0px 0px 2px 3px #b3b5ba;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfe0e6), color-stop(1, #333336));
+	background:-moz-linear-gradient(top, #dfe0e6 5%, #333336 100%);
+	background:-webkit-linear-gradient(top, #dfe0e6 5%, #333336 100%);
+	background:-o-linear-gradient(top, #dfe0e6 5%, #333336 100%);
+	background:-ms-linear-gradient(top, #dfe0e6 5%, #333336 100%);
+	background:linear-gradient(to bottom, #dfe0e6 5%, #333336 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfe0e6', endColorstr='#333336',GradientType=0);
+	background-color:#dfe0e6;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:2px solid #a0a5bf;
+	display:inline-block;
+	cursor:pointer;
+	color:#fcfcfc;
+	font-family:Arial;
+	font-size:50px;
+	padding:13px 24px;
+	text-decoration:none;
+}
+.coolBtn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #333336), color-stop(1, #dfe0e6));
+	background:-moz-linear-gradient(top, #333336 5%, #dfe0e6 100%);
+	background:-webkit-linear-gradient(top, #333336 5%, #dfe0e6 100%);
+	background:-o-linear-gradient(top, #333336 5%, #dfe0e6 100%);
+	background:-ms-linear-gradient(top, #333336 5%, #dfe0e6 100%);
+	background:linear-gradient(to bottom, #333336 5%, #dfe0e6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#333336', endColorstr='#dfe0e6',GradientType=0);
+	background-color:#333336;
+}
+.coolBtn:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+#submitBtn{
+	margin:0;
+	width: 200px;
+	font-size: 50px;
+}
+
+

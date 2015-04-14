@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Route Select</title>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5j_8r2dx-2QGPsbDfqUeJKfZt_zDRowU"
+				type="text/javascript">
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="scripts/routeSelectJS.js" type="text/javascript"></script>
+		<script src="scripts/sockjs-0.3.js" type="text/javascript"></script>
+		<script src="scripts/stomp.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="styles/routeSelectStyle.css">
+	</head>
+	<body >	
+		<div id="mainDiv">
+			<div id="leftDiv">
+				<div id="leftContent">
+					<div id="titleDiv">
+						<h1>Hospitals</h1>
+					</div>
+					<div id="hosp1Div">
+						<div class="hospInfoDiv">
+							<h1 id="hosp0Name" class="hospName"></h1>
+							<h2 id="hosp0ETA" class="hospETA"></h2>
+							<h2 id="hosp0Address" class="hospAddress"></h2>
+						</div>
+						<div class="hospSelectDiv">
+							<button id="selectHosp1Btn" type="input" class="coolBtn selectBtn" >Select</button>
+						</div>
+					</div>
+					<div id="hosp2Div">
+						<div class="hospInfoDiv">
+							<h1 id="hosp1Name" class="hospName"></h1>
+							<h2 id="hosp1ETA" class="hospETA"></h2>
+							<h2 id="hosp1Address" class="hospAddress"></h2>
+						</div>
+						<div class="hospSelectDiv">
+							<button id="selectHosp2Btn" type="input" class="coolBtn selectBtn" >Select</button>
+						</div>
+					</div>
+					<div id="hosp3Div">
+						<div class="hospInfoDiv">
+							<h1 id="hosp2Name" class="hospName"></h1>
+							<h2 id="hosp2ETA" class="hospETA"></h2>
+							<h2 id="hosp2Address" class="hospAddress"></h2>
+						</div>
+						<div class="hospSelectDiv">
+							<button id="selectHosp3Btn" type="input" class="coolBtn selectBtn" ">Select</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="rightDiv">
+				<div id="rightContent">
+					<div id="mapDiv">
+					</div>
+				</div>
+			</div>
+		<div>
+	<body>
+<html>

@@ -1,0 +1,217 @@
+html body  {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width:1024px; 
+	height:767px; 
+}
+
+#mainDiv {
+	margin: 0;
+	padding: 14px;
+	border: 0;
+	width:1024px; 
+	height:767px; 
+	background-color: #31302F;
+} 
+
+
+#titleDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-bottom: 1px solid #545250;
+	height: 78px;
+	width: 1024px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #A3A19E;
+}
+
+#titleDiv h1 {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	color: #41403F;
+	line-height: 68px;
+	font-size: 3em;
+}
+
+#ageDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-bottom: 1px solid #545250;
+	height: 210px;
+	width: 512px;
+	text-align: center;
+	background-color: #A3A19E;
+	float: left;
+}
+
+#genderDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-bottom: 1px solid #545250;
+	height: 210px;
+	width: 512px;
+	text-align: center;
+	background-color: #A3A19E;
+	float: right;
+}
+
+#traumaDiv {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 336px;
+	width: 1024px;
+	text-align: center;
+	background-color: #A3A19E;
+	display: inline-block;
+}
+
+#submitDiv {
+	margin: 0;
+	padding: 0;
+	padding-top: 25px;
+	border: 0;
+	border-top: 1px solid #545250;
+	height: 116px;
+	width: 1024px;
+	text-align: center;
+	background-color: #A3A19E;
+}
+
+.patientH1 {
+	border: 0;
+	margin: 0;
+	margin-bottom: 18px;
+	margin-top: 10px;
+	padding: 0;
+	color: #41403F;
+	font-size: 3em;
+}
+
+
+#trama1Btn {
+	margin: 0;
+	margin-left: 5px;
+}
+
+#trama2Btn {
+	margin: 0;
+	margin-left: 5px;
+	margin-right: 5 px;
+}
+
+#trama3Btn {
+	margin: 0;
+	margin-right: 5 px;
+}
+
+#tramaBasicBtn {
+	margin: 0;
+	margin-right: 5px;
+}
+
+#tramaBurnBtn{
+	margin: 0;
+	margin-right: 5px;
+}
+
+#tramaSTEMIBtn{
+	margin: 0;
+	margin-right: 5px;
+}
+
+#tramaStrokeBtn{
+	margin: 0;
+	margin-right: 5px;
+}
+
+#childBtn {
+	margin: 0;
+	margin-left: 35px;
+	margin-right: 30px;
+}
+
+#teenBtn {
+	margin: 0;
+	margin-right: 30px;
+}
+
+#adultBtn {
+	margin: 0;
+	margin-right: 30px;
+}
+
+#maleBtn {
+	margin: 0;
+	margin-left: 100px;
+	margin-right: 50px;
+}
+
+#femaleBtn {
+	margin: 0;
+	margin-right: 100px;
+}
+#submitBtn{
+	margin: 0;
+
+}
+
+
+.coolBtn {
+	-moz-box-shadow: 0px 0px 2px 3px #b3b5ba;
+	-webkit-box-shadow: 0px 0px 2px 3px #b3b5ba;
+	box-shadow: 0px 0px 2px 3px #b3b5ba;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfe0e6), color-stop(1, #333336));
+	background:-moz-linear-gradient(top, #dfe0e6 5%, #333336 100%);
+	background:-webkit-linear-gradient(top, #dfe0e6 5%, #333336 100%);
+	background:-o-linear-gradient(top, #dfe0e6 5%, #333336 100%);
+	background:-ms-linear-gradient(top, #dfe0e6 5%, #333336 100%);
+	background:linear-gradient(to bottom, #dfe0e6 5%, #333336 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfe0e6', endColorstr='#333336',GradientType=0);
+	background-color:#dfe0e6;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:2px solid #a0a5bf;
+	display:inline-block;
+	cursor:pointer;
+	color:#fcfcfc;
+	font-family:Arial;
+	font-size:28px;
+	padding:13px 24px;
+	text-decoration:none;
+}
+.coolBtn:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #333336), color-stop(1, #dfe0e6));
+	background:-moz-linear-gradient(top, #333336 5%, #dfe0e6 100%);
+	background:-webkit-linear-gradient(top, #333336 5%, #dfe0e6 100%);
+	background:-o-linear-gradient(top, #333336 5%, #dfe0e6 100%);
+	background:-ms-linear-gradient(top, #333336 5%, #dfe0e6 100%);
+	background:linear-gradient(to bottom, #333336 5%, #dfe0e6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#333336', endColorstr='#dfe0e6',GradientType=0);
+	background-color:#333336;
+}
+.coolBtn:active {
+	position:relative;
+	top:1px;
+}
+
+.coolBtn{
+	height: 90px;
+	font-size:32px;
+}
+
+
+.traumaLvlBtn {
+	width: 350px;
+}
+
+.traumaLvlBtn2{
+	width: 170px;
+}

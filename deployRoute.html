@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Route Deploy</title>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5j_8r2dx-2QGPsbDfqUeJKfZt_zDRowU"
+				type="text/javascript">
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="scripts/RoutePlotterAPI.js" type="text/javascript"></script>
+		<script src="scripts/sockjs-0.3.js" type="text/javascript"></script>
+		<script src="scripts/stomp.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="styles/deployRouteStyle.css">
+	</head>
+	<body >	
+		<div id="mainDiv">
+			<div id="leftDiv">
+				<div id="leftContent">
+					<div id="titleDiv">
+						<p>Directions to</p>
+					</div>
+					<div id="directionsDiv">
+						<p id="currentDirection"></p>
+						<p id="nextDirection"></p>
+					</div>
+					<button type="submit" id="beginRouteBtn" class="coolBtn">Begin Route</button>
+					<div id="alertDiv">
+						<button type="submit" id="rerouteBtn" >Request Reroute</button>
+					</div>
+
+				</div>
+			</div>
+			<div id="rightDiv">
+				<div id="rightContent">
+					<div id="mapDiv">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var ws = new SockJS('http://107.188.249.238:15674/stomp');
+			var client = Stomp.over(ws);
+			// SockJS does not support heart-beat: disable heart-beats
+			client.heartbeat.incoming = 0;
+			client.heartbeat.outgoing = 0;
+
+			client.debug = function(e) {
+			$('#second div').append($("<code>").text(e));
+			};
+
+
+			var myAmbulance = '/topic/Ambulance'+localStorage.ambulanceID;
+			var theirHospital = '/topic/Hospital'+ localStorage.chosenHospitalID; 
+
+			var on_connect = function(x) {
+			id = client.subscribe(myAmbulance, function(m) {
+				// gets the text value sent from the hospital
+					getHospitals();
+					alertReReoute();
+				});
+			};
+			
+			var on_error =  function() {
+				console.log('error');
+			};
+			client.connect('cs570', 'erProj1', on_connect, on_error, '/');
+
+			$('#beginRouteBtn').click(function() {
+				
+				var json = '{"ambulanceID" : ' + localStorage.ambulanceID + ',"patientAge" :' + localStorage.patientAge + ',"patientCategory": ' + localStorage.patientTraumaLevel + '}';
+				if (json) {
+					client.send(theirHospital, {'reply-to': theirHospital}, json);
+				}
+				return false;
+			});
+			
+			function getHospitals(){
+				var xmlhttp;
+				if (window.XMLHttpRequest)
+				{// code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp=new XMLHttpRequest();
+				}
+				else
+				{// code for IE6, IE5
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function(){
+					if (xmlhttp.readyState==4 && xmlhttp.status==200){
+						var jsonResponse = JSON.parse(xmlhttp.responseText);
+						
+						localStorage.hospital0Name = jsonResponse[0].hospitalName;
+						localStorage.hospital0Address = jsonResponse[0].hospitalString;
+						localStorage.hospital0Lat = jsonResponse[0].hospitalLat;
+						localStorage.hospital0Lon = jsonResponse[0].hospitalLon;
+						localStorage.hospital0ID = jsonResponse[0].hospitalID;
+						localStorage.hospital0Eta = jsonResponse[0].eta;
+						
+						localStorage.hospital1Name = jsonResponse[1].hospitalName;
+						localStorage.hospital1Address = jsonResponse[1].hospitalString;
+						localStorage.hospital1Lat = jsonResponse[1].hospitalLat;
+						localStorage.hospital1Lon = jsonResponse[1].hospitalLon;
+						localStorage.hospital1ID = jsonResponse[1].hospitalID;
+						localStorage.hospital1Eta = jsonResponse[1].eta;
+						
+						localStorage.hospital2Name = jsonResponse[2].hospitalName;
+						localStorage.hospital2Address = jsonResponse[2].hospitalString;
+						localStorage.hospital2Lat = jsonResponse[2].hospitalLat;
+						localStorage.hospital2Lon = jsonResponse[2].hospitalLon;
+						localStorage.hospital2ID = jsonResponse[2].hospitalID;
+						localStorage.hospital2Eta = jsonResponse[2].eta;
+					}
+				}
+				var url = "http://107.188.249.238:8080/er-rest-1.0/shortestpath?amblat=" + currentLocation.k + "&amblon=" + currentLocation.D + "&age=" + localStorage.patientAge + "&condition=" + localStorage.patientTraumaLevel + "&exclude=" + localStorage.chosenHospitalID;
+				xmlhttp.open("GET",url,false);
+				xmlhttp.send();
+			}
+			
+			function alertReReoute(){
+				var isRed="false";
+				$("#rerouteBtn").css("background-color","#A3A19E");
+				$("#rerouteBtn").css("color","#31302F");
+				$("#rerouteBtn").css("border-color","#31302F");
+				setInterval(function(){ 
+					if(isRed=="false"){
+						$("#rerouteBtn").css("border-color","red");
+						$("#rightDiv").css("background-color","red");
+						$("#leftDiv").css("background-color","red");
+						$("#rerouteBtn").css("color","red");
+						isRed = "true";
+					}
+					else{
+						$("#rerouteBtn").css("border-color","#31302F");
+						$("#rightDiv").css("background-color","#31302F");
+						$("#leftDiv").css("background-color","#31302F");
+						$("#rerouteBtn").css("color","#31302F");
+						isRed = "false";
+					}
+					}, 500);
+			}
+	</script>
+	<body>
+<html>
