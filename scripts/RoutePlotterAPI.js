@@ -26,11 +26,6 @@ function initialize(){
 		map: map
 	});
 	markers.push(initialLocationMarker);
-	
-	//set the ambulance ID for this session
-	//var searchForAmbID = window.location.search;
-	//var indexOfEquals = searchForAmbID.indexOf("=");
-	//ambID = searchForAmbID.slice(indexOfEquals+1);
 
 }
 
@@ -257,7 +252,6 @@ function deg2rad(deg) {
 
 function pingLocation(_ambLat, _ambLon){
 	//May need to send eta when pinging location.  If so use (note, will return "" the first time so check for that): calculateETA(_ambLat, _ambLon);
-	//var jsonData = '{ "ambulanceID" : ' + localStorage.ambulanceID + ', "ambLat" : ' + _ambLat + ', "ambLon": ' + _ambLon + ' }';
 	var jsonData = JSON.stringify({"ambulanceID": localStorage.ambulanceID, "ambLat": _ambLat,"ambLon": _ambLon, "lastUpdate": null,"targetHospital": localStorage.chosenHospitalID, "eta": null, "patientAge": localStorage.patientAge, "patientCategory": localStorage.patientTraumaLevel});
 	$.ajax({
 		method: "POST",

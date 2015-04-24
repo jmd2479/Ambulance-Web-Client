@@ -27,7 +27,7 @@
 					<div id="alertDiv">
 						<button type="submit" id="rerouteBtn" >Request Reroute</button>
 					</div>
-
+					<button type="submit" id="forceAlert" ></button>
 				</div>
 			</div>
 			<div id="rightDiv">
@@ -55,6 +55,7 @@
 			var on_connect = function(x) {
 			id = client.subscribe(myAmbulance, function(m) {
 				// gets the text value sent from the hospital
+					$('#forceAlert').remove();
 					getHospitals();
 					alertReReoute();
 				});
@@ -72,6 +73,12 @@
 					client.send(theirHospital, {'reply-to': theirHospital}, json);
 				}
 				return false;
+			});
+			
+			$('#forceAlert').click(function() {
+				getHospitals();
+				alertReReoute();
+				$('#forceAlert').remove();
 			});
 			
 			function getHospitals(){

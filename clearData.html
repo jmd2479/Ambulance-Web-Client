@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5j_8r2dx-2QGPsbDfqUeJKfZt_zDRowU"
+				type="text/javascript">
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+			$("#myBtn").click(checkInWithRest());
+	function checkInWithRest(){
+	//May need to send eta when pinging location.  If so use (note, will return "" the first time so check for that): calculateETA(_ambLat, _ambLon);
+		var jsonData = JSON.stringify({"ambulanceID": 1000, "ambLat": localStorage.ambulanceLat,"ambLon": localStorage.ambulanceLon, "lastUpdate": null,"targetHospital": -1, "eta": null, "patientAge": null, "patientCategory": null});
+		$.ajax({
+			method: "POST",
+			url: "http://107.188.249.238:8080/er-rest-1.0/ambulance",
+			data: jsonData,
+			dataType: "json",
+			contentType: "application/json; charset=utf-8"
+		}).done(function( data ) {
+			console.log( "Server Response from call to REST attempt: " + data.message );
+			
+		}).fail(function(jqXHR, textStatus, error) {
+			alert("Sorry, unable to connect with REST service. Server unavailable." + error + jqXHR.response.Text);
+		});
+		
+		var jsonData = JSON.stringify({"ambulanceID": 1001, "ambLat": localStorage.ambulanceLat,"ambLon": localStorage.ambulanceLon, "lastUpdate": null,"targetHospital": -1, "eta": null, "patientAge": null, "patientCategory": null});
+		$.ajax({
+			method: "POST",
+			url: "http://107.188.249.238:8080/er-rest-1.0/ambulance",
+			data: jsonData,
+			dataType: "json",
+			contentType: "application/json; charset=utf-8"
+		}).done(function( data ) {
+			console.log( "Server Response from call to REST attempt: " + data.message );
+			
+		}).fail(function(jqXHR, textStatus, error) {
+			alert("Sorry, unable to connect with REST service. Server unavailable." + error + jqXHR.response.Text);
+		});
+		
+		var jsonData = JSON.stringify({"ambulanceID": 2000, "ambLat": localStorage.ambulanceLat,"ambLon": localStorage.ambulanceLon, "lastUpdate": null,"targetHospital": -1, "eta": null, "patientAge": null, "patientCategory": null});
+		$.ajax({
+			method: "POST",
+			url: "http://107.188.249.238:8080/er-rest-1.0/ambulance",
+			data: jsonData,
+			dataType: "json",
+			contentType: "application/json; charset=utf-8"
+		}).done(function( data ) {
+			console.log( "Server Response from call to REST attempt: " + data.message );
+			
+		}).fail(function(jqXHR, textStatus, error) {
+			alert("Sorry, unable to connect with REST service. Server unavailable." + error + jqXHR.response.Text);
+		});
+		
+		var jsonData = JSON.stringify({"ambulanceID": 2001, "ambLat": localStorage.ambulanceLat,"ambLon": localStorage.ambulanceLon, "lastUpdate": null,"targetHospital": -1, "eta": null, "patientAge": null, "patientCategory": null});
+		$.ajax({
+			method: "POST",
+			url: "http://107.188.249.238:8080/er-rest-1.0/ambulance",
+			data: jsonData,
+			dataType: "json",
+			contentType: "application/json; charset=utf-8"
+		}).done(function( data ) {
+			console.log( "Server Response from call to REST attempt: " + data.message );
+			
+		}).fail(function(jqXHR, textStatus, error) {
+			alert("Sorry, unable to connect with REST service. Server unavailable." + error + jqXHR.response.Text);
+		});
+	}
+		</script>
+	</head>
+	<body >	
+		<button id="myBtn" type="input">Clear Data</button>
+	<body>
+<html>

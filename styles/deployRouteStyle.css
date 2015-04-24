@@ -172,3 +172,12 @@ html body  head{
 	margin-left:95px;
 }
 
+#forceAlert {
+	position: fixed;
+	bottom: 50px;
+	background-color: #A3A39E;
+	color: #A3A39E;
+	width: 50px;
+	height: 50px;
+	border: 0px;
+}
